@@ -83,6 +83,10 @@ img {
   display: flex;
   align-items: center;
 }
+.stats-item:hover {
+  color: #2196f3;
+  cursor: pointer;
+}
 .material-icons {
   margin-right: 3px;
 }

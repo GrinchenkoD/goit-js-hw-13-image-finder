@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/GrinchenkoD/goit-js-hw-13-image-finder"
   },
-  "homepage": "// тут вставить url GitHub Pages после команды npm run deploy",
+  "homepage": "https://grinchenkod.github.io/goit-js-hw-13-image-finder/",
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.10.4",

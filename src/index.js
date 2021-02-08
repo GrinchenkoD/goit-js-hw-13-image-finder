@@ -20,12 +20,12 @@ function fulfillGallery(event) {
   event.preventDefault();
   apiSearch.setDefaultPage();
   refs.gallery.innerHTML = "";
-  if (event.target.value === "") {
+  if (refs.input.value === "") {
     refs.button.classList.add("is-hidden");
   }
 
   apiSearch
-    .searchPictures(event.target.value)
+    .searchPictures(refs.input.value)
     .then(
       (data) =>
         refs.gallery.insertAdjacentHTML(
@@ -53,5 +53,5 @@ function nextPage(event) {
   });
 }
 
-refs.form.addEventListener("change", fulfillGallery);
+refs.form.addEventListener("submit", fulfillGallery);
 refs.button.addEventListener("click", nextPage);
