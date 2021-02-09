@@ -2,7 +2,6 @@ export default {
   key: "20201719-2c6bddc3b6de2ae59c417e3e6",
   page: 1,
   searchPictures(searchQuery) {
-    console.log(searchQuery);
     const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${searchQuery}&page=${this.page}&per_page=12&key=${this.key}`;
     //
     return fetch(url).then((res) => {
