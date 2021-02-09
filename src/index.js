@@ -2,11 +2,12 @@ import "./css/style.css";
 import galleryItemTmpl from "./templates/galleryItem.hbs";
 import searchFormTmpl from "./templates/searchForm.hbs";
 import galleryTmpl from "./templates/gallery.hbs";
-
+import * as basicLightbox from "basiclightbox";
+import "../node_modules/basiclightbox/dist/basicLightbox.min.css";
 import apiSearch from "./js/apiService.js";
 import "@pnotify/core/dist/PNotify.css";
 import "@pnotify/core/dist/BrightTheme.css";
-import { error, info } from "@pnotify/core";
+import { error } from "@pnotify/core";
 
 document.body.insertAdjacentHTML("beforeend", searchFormTmpl() + galleryTmpl());
 const refs = {
@@ -67,6 +68,17 @@ function nextPage(e) {
   //   behavior: "smooth",
   // });
 }
+function openModal(event) {
+  console.log(event.target);
+  if (event.target.nodeName === "IMG") {
+    const instance = basicLightbox.create(`
+    <img src="${event.target.dataset.action}" width="800" height="600">
+`);
+
+    instance.show();
+  }
+}
 
 refs.form.addEventListener("submit", fulfillGallery);
 refs.button.addEventListener("click", nextPage);
+refs.gallery.addEventListener("click", openModal);
