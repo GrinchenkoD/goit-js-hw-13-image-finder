@@ -50,12 +50,10 @@ function fulfillGallery(event) {
 function nextPage(e) {
   apiSearch
     .searchPictures(refs.input.value)
-    .then(
-      (data) =>
-        refs.gallery.insertAdjacentHTML(
-          "beforeend",
-          galleryItemTmpl(data.hits),
-        ),
+    .then((data) =>
+      refs.gallery.insertAdjacentHTML("beforeend", galleryItemTmpl(data.hits)),
+    )
+    .then((e) =>
       window.scrollTo({
         top: document.documentElement.offsetHeight,
         behavior: "smooth",
@@ -64,10 +62,10 @@ function nextPage(e) {
 
     .catch((err) => console.log(err));
 
-  window.scrollBy({
-    top: document.documentElement.clientHeight,
-    behavior: "smooth",
-  });
+  // window.scrollBy({
+  //   top: document.documentElement.clientHeight,
+  //   behavior: "smooth",
+  // });
 }
 
 refs.form.addEventListener("submit", fulfillGallery);
